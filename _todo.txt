@@ -1,0 +1,6 @@
+clickable cells
+- change one cell
+- add patterns
+
+Menubutton
+- open and show _about.txt
