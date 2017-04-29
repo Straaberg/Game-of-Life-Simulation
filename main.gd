@@ -179,3 +179,7 @@ func _on_buttonResetGrid_pressed():
 func _on_buttonStep_pressed():
 	update_grid()
 	
+
+
+func _on_aboutButton_pressed():
+	pass # replace with function body
