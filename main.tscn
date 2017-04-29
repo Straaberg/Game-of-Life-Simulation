@@ -29,9 +29,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 30.0
-margin/top = 210.0
+margin/top = 270.0
 margin/right = 190.0
-margin/bottom = 250.0
+margin/bottom = 310.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -93,13 +93,59 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 30.0
-margin/top = 270.0
+margin/top = 210.0
 margin/right = 190.0
-margin/bottom = 310.0
+margin/bottom = 250.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 text = "About"
+flat = false
+
+[node name="popupAbout" type="PopupDialog" parent="."]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 100.0
+margin/top = 60.0
+margin/right = 960.0
+margin/bottom = 660.0
+popup/exclusive = false
+
+[node name="textPopup" type="TextEdit" parent="popupAbout"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 20.0
+margin/top = 20.0
+margin/right = 840.0
+margin/bottom = 520.0
+syntax_highlighting = false
+show_line_numbers = false
+highlight_all_occurrences = false
+caret/block_caret = false
+caret/caret_blink = false
+caret/caret_blink_speed = 0.65
+
+[node name="closePopup" type="Button" parent="popupAbout"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 680.0
+margin/top = 540.0
+margin/right = 840.0
+margin/bottom = 580.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Close"
 flat = false
 
 [connection signal="pressed" from="buttonStartStop" to="." method="_on_Button_pressed"]
@@ -111,5 +157,7 @@ flat = false
 [connection signal="pressed" from="buttonStep" to="." method="_on_buttonStep_pressed"]
 
 [connection signal="pressed" from="aboutButton" to="." method="_on_aboutButton_pressed"]
+
+[connection signal="pressed" from="popupAbout/closePopup" to="." method="_on_closePopup_pressed"]
 
 

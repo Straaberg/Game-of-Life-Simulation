@@ -22,13 +22,15 @@ func _ready():
 	grid.resize(GRIDSIZE)	
 	reset_grid()
 	
+	
 func _process(delta):
 	if (running):
 		waiting += delta
 		if (waiting >= LOOPDELAY):
 			waiting = 0
 			update_grid()
-			
+	
+	
 func _draw():
 	var i = GRIDSIZE
 	var s = GRIDSIDE
@@ -49,8 +51,10 @@ func _draw():
 			c = LIVECOLOR
 			
 		draw_rect(newcell, c)
-		
+	
+	
 ########################################
+
 
 func calc_index_from_coord(x, y):
 	# x and y >=0   <GRIDSIDE
@@ -61,7 +65,7 @@ func calc_index_from_coord(x, y):
 		result=-1
 	return result
 			
-			
+	
 func update_grid():
 	generation += 1 
 	get_node("labelGeneration").set_text("Generation: " + str(generation))
@@ -151,6 +155,7 @@ func update_grid():
 	grid = newgrid
 	update()
 	
+	
 func reset_grid():
 	var i = 0
 	
@@ -165,21 +170,39 @@ func reset_grid():
 		grid[calc_index_from_coord(randi() % GRIDSIDE,randi() % GRIDSIDE)] = LIVECELL
 		i += 1	
 	
-
+	
 func _on_Button_pressed():
 	running = not running
 	
+	
 func _on_buttonQuit_pressed():
 	get_tree().quit()
-
+	
+	
 func _on_buttonResetGrid_pressed():
 	reset_grid()
 	update()
-
+	
+	
 func _on_buttonStep_pressed():
 	update_grid()
 	
-
-
+	
 func _on_aboutButton_pressed():
-	pass # replace with function body
+	var file = File.new()
+	var text = ""
+	if(file.open("res://_about.txt", file.READ) == 0):
+		text = file.get_as_text()
+		file.close()
+	else:
+		text = "File missing. No text to show :-("
+	var textbox = get_node("popupAbout/textPopup")
+	textbox.set_readonly(true)
+	textbox.set_text(text)
+	get_node("popupAbout").show_modal(true)
+	
+	
+func _on_closePopup_pressed():
+	get_node("popupAbout").hide()
+	
+	
