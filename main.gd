@@ -19,6 +19,7 @@ const LIVECOLOR = Color(1, 1, 1)
 
 func _ready():
 	set_process(true)
+	set_process_input(true)
 	grid.resize(GRIDSIZE)	
 	reset_grid()
 	
@@ -31,29 +32,53 @@ func _process(delta):
 			update_grid()
 	
 	
+func _input(event):
+	if (event.type == InputEvent.MOUSE_BUTTON):
+		if (event.is_pressed() && !event.is_echo()):
+			change_cell(event.pos.x, event.pos.y)
+	
+	
 func _draw():
-	var i = GRIDSIZE
+	var i = 0
 	var s = GRIDSIDE
 	var x = 0
 	var y = 0
 	var newcell = Rect2(0, 0, 0, 0)
 	var c = DEADCOLOR
 
-	while i > 0:
-		i -= 1
-		x = floor(i / s)
-		y = fmod(i, s)
-		#print("x,y,i %s %s %s" % [x,y,i])
+	while i <GRIDSIZE:
+		x = fmod(i, s)
+		y = floor(i / s)
 		newcell = Rect2(GRIDOFFSET.x + x * (CELLSIZE + CELLSPACING), GRIDOFFSET.y + y * (CELLSIZE + CELLSPACING), CELLSIZE, CELLSIZE)
 		if (grid[i] == DEADCELL):
 			c = DEADCOLOR
 		else:
 			c = LIVECOLOR
-			
 		draw_rect(newcell, c)
+		i += 1
 	
 	
 ########################################
+
+
+func change_cell(clicked_x, clicked_y):
+	# clicked_x/y position 
+	# transformed to match grid x, y
+	# if click is on a cell in grid, cell is switched from 0 to 1 or 1 to 0
+	var x = 0
+	var y = 0
+	
+	x = int((clicked_x - GRIDOFFSET.x) / (CELLSIZE+CELLSPACING))
+	y = int((clicked_y - GRIDOFFSET.y) / (CELLSIZE+CELLSPACING))
+	
+	var i = calc_index_from_coord(x, y)
+		
+	if (i > -1):
+		if(grid[i] == LIVECELL):
+			grid[i] = DEADCELL
+		else:
+			grid[i] = LIVECELL
+		update()
 
 
 func calc_index_from_coord(x, y):
@@ -206,3 +231,9 @@ func _on_closePopup_pressed():
 	get_node("popupAbout").hide()
 	
 	
+func _on_buttonClearGrid_pressed():
+	var i = 0
+	while (i < GRIDSIZE):
+		grid[i] = DEADCELL
+		i += 1
+	update()

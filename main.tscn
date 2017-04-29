@@ -29,9 +29,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 30.0
-margin/top = 270.0
+margin/top = 330.0
 margin/right = 190.0
-margin/bottom = 310.0
+margin/bottom = 370.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -60,14 +60,31 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 31.0
-margin/top = 90.0
-margin/right = 191.0
-margin/bottom = 130.0
+margin/left = 30.0
+margin/top = 210.0
+margin/right = 190.0
+margin/bottom = 250.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-text = "Reset Grid"
+text = "Random Grid"
+flat = false
+
+[node name="buttonClearGrid" type="Button" parent="."]
+
+rect/min_size = Vector2( 160, 40 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 30.0
+margin/top = 150.0
+margin/right = 190.0
+margin/bottom = 190.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Empty Grid"
 flat = false
 
 [node name="buttonStep" type="Button" parent="."]
@@ -77,9 +94,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 30.0
-margin/top = 150.0
+margin/top = 90.0
 margin/right = 190.0
-margin/bottom = 190.0
+margin/bottom = 130.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -93,9 +110,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 30.0
-margin/top = 210.0
+margin/top = 270.0
 margin/right = 190.0
-margin/bottom = 250.0
+margin/bottom = 310.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -153,6 +170,8 @@ flat = false
 [connection signal="pressed" from="buttonQuit" to="." method="_on_buttonQuit_pressed"]
 
 [connection signal="pressed" from="buttonResetGrid" to="." method="_on_buttonResetGrid_pressed"]
+
+[connection signal="pressed" from="buttonClearGrid" to="." method="_on_buttonClearGrid_pressed"]
 
 [connection signal="pressed" from="buttonStep" to="." method="_on_buttonStep_pressed"]
 
