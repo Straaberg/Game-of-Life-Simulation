@@ -86,6 +86,22 @@ shortcut = null
 text = "Step"
 flat = false
 
+[node name="aboutButton" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 30.0
+margin/top = 270.0
+margin/right = 190.0
+margin/bottom = 310.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "About"
+flat = false
+
 [connection signal="pressed" from="buttonStartStop" to="." method="_on_Button_pressed"]
 
 [connection signal="pressed" from="buttonQuit" to="." method="_on_buttonQuit_pressed"]
@@ -93,5 +109,7 @@ flat = false
 [connection signal="pressed" from="buttonResetGrid" to="." method="_on_buttonResetGrid_pressed"]
 
 [connection signal="pressed" from="buttonStep" to="." method="_on_buttonStep_pressed"]
+
+[connection signal="pressed" from="aboutButton" to="." method="_on_aboutButton_pressed"]
 
 
