@@ -1,20 +1,10 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=2 format=1]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
-[ext_resource path="res://background.png" type="Texture" id=2]
-[ext_resource path="res://brush1.png" type="Texture" id=3]
-[ext_resource path="res://brush2.png" type="Texture" id=4]
-[ext_resource path="res://brush3.png" type="Texture" id=5]
 
 [node name="Node2D" type="Node2D"]
 
 script/script = ExtResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="."]
-
-z/z = -10
-texture = ExtResource( 2 )
-centered = false
 
 [node name="buttonStartStop" type="Button" parent="."]
 
@@ -131,7 +121,6 @@ flat = false
 
 [node name="popupAbout" type="PopupDialog" parent="."]
 
-editor/display_folded = true
 visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -176,61 +165,7 @@ shortcut = null
 text = "Close"
 flat = false
 
-[node name="buttonBrush1" type="TextureButton" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 30.0
-margin/top = 510.0
-margin/right = 94.0
-margin/bottom = 574.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 3 )
-textures/pressed = ExtResource( 3 )
-params/resize_mode = 1
-params/stretch_mode = 1
-
-[node name="buttonBrush2" type="TextureButton" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 124.0
-margin/top = 510.0
-margin/right = 188.0
-margin/bottom = 574.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 4 )
-textures/pressed = ExtResource( 4 )
-params/resize_mode = 1
-params/stretch_mode = 1
-
-[node name="buttonBrush3" type="TextureButton" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 218.0
-margin/top = 510.0
-margin/right = 282.0
-margin/bottom = 574.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 5 )
-textures/pressed = ExtResource( 5 )
-params/resize_mode = 1
-params/stretch_mode = 1
-
-[connection signal="pressed" from="buttonStartStop" to="." method="_on_buttonStartStop_pressed"]
+[connection signal="pressed" from="buttonStartStop" to="." method="_on_Button_pressed"]
 
 [connection signal="pressed" from="buttonQuit" to="." method="_on_buttonQuit_pressed"]
 
@@ -243,11 +178,5 @@ params/stretch_mode = 1
 [connection signal="pressed" from="aboutButton" to="." method="_on_aboutButton_pressed"]
 
 [connection signal="pressed" from="popupAbout/closePopup" to="." method="_on_closePopup_pressed"]
-
-[connection signal="toggled" from="buttonBrush1" to="." method="_on_buttonBrush1_toggled"]
-
-[connection signal="toggled" from="buttonBrush2" to="." method="_on_buttonBrush2_toggled"]
-
-[connection signal="toggled" from="buttonBrush3" to="." method="_on_buttonBrush3_toggled"]
 
 

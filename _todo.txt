@@ -1,0 +1,4 @@
+clickable cells
+- change one cell
+- add patterns
+
