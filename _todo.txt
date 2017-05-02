@@ -1,3 +1,0 @@
-﻿clickable cells
-- change one cell (done)
-- add patterns
