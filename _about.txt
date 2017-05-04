@@ -1,4 +1,4 @@
-Straaberg's Game of Life Simulation
+**** Straaberg's Game of Life Simulation ****
 This program implements the rules from Conway's Game of Life. You can play with these
 rules on screen and see how this set of rules makes "life" develop over generations.
 You can read about the actual rules and background here: 
@@ -8,9 +8,17 @@ https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
 Programmed 2017 by Carsten Straaberg, http://straaberg.dk
 Release version: 1.0.0
 Software used: Godot 2.1.3, https://godotengine.org
-Assets used: no additional assets
+Graphics (icon, buttons, background) by Carsten Straaberg
+Source code: https://github.com/Straaberg/Game-of-Life-Simulation
 
 
+**** How to use ****
+- Click a cell without an active brush to switch between alive (white) or dead (blue).
+- Select a brush and click the grid to add the selected patterm.
+- Use button to Start/Stop, Step one generation forward, empty grid, or add a random grid.
+
+
+**** LICENSE ****
 This is Free Software licensed under MIT License
 https://opensource.org/licenses/MIT
 

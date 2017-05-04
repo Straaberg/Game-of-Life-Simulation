@@ -48,15 +48,14 @@ func _input(event):
 	
 func _draw():
 	var i = 0
-	var s = GRIDSIDE
 	var x = 0
 	var y = 0
 	var newcell = Rect2(0, 0, 0, 0)
 	var c = DEADCOLOR
 
 	while i <GRIDSIZE:
-		x = fmod(i, s)
-		y = floor(i / s)
+		x = fmod(i, GRIDSIDE)
+		y = floor(i / GRIDSIDE)
 		newcell = Rect2(GRIDOFFSET.x + x * (CELLSIZE + CELLSPACING), GRIDOFFSET.y + y * (CELLSIZE + CELLSPACING), CELLSIZE, CELLSIZE)
 		if (grid[i] == DEADCELL):
 			c = DEADCOLOR
@@ -105,6 +104,7 @@ func calc_index_from_coord(x, y):
 
 
 func update_grid():
+	# Calculates the new grid from the rules as described in Wikipedia (see _about.txt)
 	generation += 1 
 	get_node("labelGeneration").set_text("Generation: " + str(generation))
 	

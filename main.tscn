@@ -230,6 +230,36 @@ textures/pressed = ExtResource( 5 )
 params/resize_mode = 1
 params/stretch_mode = 1
 
+[node name="labelVersion" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 30.0
+margin/top = 670.0
+margin/right = 388.0
+margin/bottom = 684.0
+text = "Version: 1.0.0 (see About for additional info and license)"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="labelBrush" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 30.0
+margin/top = 480.0
+margin/right = 86.0
+margin/bottom = 494.0
+text = "Brushes:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [connection signal="pressed" from="buttonStartStop" to="." method="_on_buttonStartStop_pressed"]
 
 [connection signal="pressed" from="buttonQuit" to="." method="_on_buttonQuit_pressed"]
